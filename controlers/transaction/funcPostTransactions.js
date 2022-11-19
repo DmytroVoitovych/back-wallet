@@ -11,8 +11,8 @@ const funcPostTransactions = async (req, res) => {
     }
     else {
         const { _id } = req.user; // id авторизованого пользвателя
-
-        const date = (new Date()).toLocaleDateString(); //формат дата 19.11.2022
+        
+        const date = (new Date()).toLocaleDateString('en-GB').replace('/','.').replace('/','.'); //формат дата 19.11.2022
         const time = (new Date()).toTimeString().slice(0, 5); //формат время 23:29
 
         const { sum, balance, comment, category, type } = req.body;
