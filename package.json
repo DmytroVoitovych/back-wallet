@@ -2,7 +2,7 @@
   "name": "template",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://dmytrovoitovych.github.io/back-wallet",
+  "homepage": "https://github.com/DmytroVoitovych/back-wallet",
   
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./server.js",

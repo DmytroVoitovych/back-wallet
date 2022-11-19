@@ -23,7 +23,8 @@ const funcPostLogin = async (req, res, next) => {
 
 
         res.status(200).json({
-            status: 'success', code: 200, data:{access_token:token, token_type:"Bearer",  user: {email, name, id} } 
+            status: 'success', code: 200, data: { access_token: token, token_type: "Bearer", user: { email, name, id } },
+            options: ["Main", "Food", "Auto", "Reset", "Development", "Children", "House", "Education"]
         });
     }
 };
