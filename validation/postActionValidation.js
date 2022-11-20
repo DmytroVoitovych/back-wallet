@@ -6,8 +6,7 @@ const validation = (data) => {
     category: Joi.string().valid("Main", "Food", "Auto", "Reset", "Development", "Children", "House", "Education"), // допустимые категории    
     comment: Joi.string().empty('').default('no comments').max(42), // не обьязательное поле
     sum: Joi.number().min(1).max(1000000).required(), // число сумы транзакции
-    balance: Joi.number().min(1).max(1000000).required() // актуальный баланс
-      });
+    });
 
     return shema.validate(data);
 };
