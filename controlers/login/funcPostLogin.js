@@ -16,11 +16,10 @@ const funcPostLogin = async (req, res, next) => {
     }
     else {
         
-        const { token, email, name, id } = validResponse(await User.findOne({ mail }));
+        const { token, email, name, id } =  validResponse(await User.findOne({email:mail }));
         
         await User.findByIdAndUpdate(id, {token}); // сохраняем токен в базу
         
-
 
         res.status(200).json({
             status: 'success', code: 200, data: { access_token: token, token_type: "Bearer", user: { email, name, id } },
