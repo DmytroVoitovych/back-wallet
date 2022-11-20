@@ -6,8 +6,15 @@ const funcCheckUser = async({ body },_,next) => {
     try {
         const { email, password,} = body;  // проверка на наличие и совпадение
         const user = await User.findOne({ email });
+        
+         if (!user) {
+         const err = new Error(`User ${email} is not registered` );
+           err.status = 404;
+           throw err;     
+        } 
+
         const pass = await bcrypt.compare(password, user.password);
-       console.log(user.token);
+       
 
         if (!user || !pass) {
             const err = new Error("Email or password is wrong");
@@ -19,6 +26,7 @@ const funcCheckUser = async({ body },_,next) => {
            err.status = 400;
            throw err;  
         }
+          
         // else if (!user.verify) {// проверка верецирован ли эмейл
         //     const err = new Error("Email not verify");
         //     err.status = 400;
