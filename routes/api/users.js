@@ -1,5 +1,5 @@
 const express = require('express');
-const {check, checkUnique, checkUser, checkToken} = require('../../utils/index');
+const {check, checkUnique, checkUser, checkToken, funcCheckPass} = require('../../utils/index');
 const { ctrSignUp, ctrLogin,  ctrCurrent, ctrLogout, ctrSub } = require('../../controlers/login/index');
 
 const router = express.Router();

@@ -1,6 +1,5 @@
 const {User} = require('../../models/user');
 const { validation } = require('../../validation/dataValidationSignUp'); 
-const bcrypt = require('bcryptjs'); //хеширование
 
  
 const funcPostSignUp = async (req, res, next) => {
