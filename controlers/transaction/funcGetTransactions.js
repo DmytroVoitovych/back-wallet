@@ -12,7 +12,7 @@ const funcGetTransaction = async ({ user, query }, res) => {
     })
     }
   
-  const data = await (await Action.find({ owner: user._id }, 'date category type comment sum balance _id', { skip, limit: +limit }).sort({ _id: -1 })).reverse();
+  const data = await (await Action.find({ owner: user._id }, 'date category type comment sum balance _id', { skip, limit: +limit }).sort({ date: -1, _id:-1 })).reverse();
   const length = data.length;
 
   return res.json({ // отобразить колекцию если параметр favorite не установлен 
