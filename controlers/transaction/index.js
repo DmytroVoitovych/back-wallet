@@ -1,5 +1,5 @@
 const ctrGet = require('./funcGetTransactions');
-// const ctrGetId = require('./funcGetContactsId');
+const ctrSta = require('./funGetStatistik');
 const ctrPost = require('./funcPostTransactions');
 // const ctrDell = require('./funcDelContacts');
 // const ctrPut = require('./funcPutContacts');
@@ -7,7 +7,7 @@ const ctrPost = require('./funcPostTransactions');
 
 module.exports = {
     ctrGet,
-    // ctrGetId,
+    ctrSta,
     ctrPost,
     // ctrDell,
     // ctrPut,

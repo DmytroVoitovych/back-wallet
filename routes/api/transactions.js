@@ -1,5 +1,5 @@
 const express = require('express');
-const {ctrPost, ctrGet} = require('../../controlers/transaction/index'); 
+const {ctrPost, ctrGet, ctrSta} = require('../../controlers/transaction/index'); 
 const {check, checkToken} = require('../../utils/index');
 // const checkFormatId = require('../../validation/funcValidateId');
 
@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', checkToken, check(ctrGet));
 
-// router.get(`/:id`, checkToken, checkFormatId, check(ctrGetId));
+router.get(`/statistics`, checkToken, check(ctrSta));
 
 router.post('/add', checkToken, check(ctrPost));
 
