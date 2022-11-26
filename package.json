@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "homepage": "https://github.com/DmytroVoitovych/back-wallet",
-  
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./server.js",
     "start:dev": "cross-env NODE_ENV=development nodemon ./server.js",
@@ -21,7 +20,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.6.2",
     "morgan": "1.10.0",
-    "randomstring": "^1.2.2"
+    "randomstring": "^1.2.2",
+    "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
     "eslint": "7.19.0",
