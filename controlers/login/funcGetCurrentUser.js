@@ -10,7 +10,7 @@ const funcGetCurrentUser = async (req, res) => {
         data: {
             email,
             name,
-            curr_balance: curr.length === 0?25000:Number(...curr.slice(-1).map(e=>e.balance)), //текущий баланс
+            curr_balance: curr.length === (0).toFixed(2)?25000:Number(...curr.slice(-1).map(e=>e.balance)).toFixed(2), //текущий баланс
         },
         
 
