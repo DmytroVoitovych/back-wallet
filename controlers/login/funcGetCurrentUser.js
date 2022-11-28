@@ -2,9 +2,11 @@ const {Action} = require('../../models/transaction');
 
 const funcGetCurrentUser = async (req, res) => {
     const { email, name, _id } = req.user;
+    // const authorization = req.headers;
 
+    // const token = authorization && authorization.split(' ')[1];
     const curr = await Action.find({ owner: _id }, '');
-         
+    //      console.log(token);
     res.json({
         status: 200,
         data: {

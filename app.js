@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
+// const redis = require('redis');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger/openapi.json');
 
@@ -30,6 +31,7 @@ app.use((err, req, res, next) => {
   const { status=500, message='Server error' } = err;
   res.status(status).json({status: 'failed', code: status, message, })
 });
+
 
 
 

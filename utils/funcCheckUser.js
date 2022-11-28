@@ -6,7 +6,7 @@ const funcCheckUser = async({ body },_,next) => {
     try {
         const { email, password,} = body;  // проверка на наличие и совпадение
         const user = await User.findOne({ email });
-
+          console.log(email);
         const all = await User.find({},'');    // ищем все
         const n = all.map((e) => e.password); // забираем пароли
         const arr = [];

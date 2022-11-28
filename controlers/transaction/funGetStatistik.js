@@ -7,13 +7,18 @@ const funcGetStatistik = async ({ user, query }, res) => {
     const { month = dat.getMonth() + 1, year = dat.getFullYear() } = query; // пагинация
   
     const curr = await Action.find({ owner: user._id });
-    const data = await (await Action.find({ owner: user._id, type: 'income', date: new RegExp(`.${month}.${year}`) }, 'sum', {}));
+    const data = await (await Action.find({
+        owner: user._id,
+        type: 'income',
+        date: query.month !== 'undefined' || !query.month?new RegExp(`.${month}.${year}`):new RegExp(`.${year}`)
+    }, 'sum', {}));
+    
     const categorys = await Action.aggregate([
         {
             $match: {
                 owner: user._id,
                 type: 'expense',
-                date: new RegExp(`.${month}.${year}`)
+                date: query.month !== 'undefined' || !query.month?new RegExp(`.${month}.${year}`):new RegExp(`.${year}`)
             }
         },
         {

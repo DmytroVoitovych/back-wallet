@@ -1,8 +1,8 @@
 const { User } = require("../../models/user");
 
 const funcGetLogout = async (req, res) => {
-    const { _id, name } = req.user;
-    console.log(name);
+    const { _id} = req.user;
+   
     await User.findByIdAndUpdate(_id, { token: null }); // сохраняем токен в базу
     return  res.status(204).json();
 };

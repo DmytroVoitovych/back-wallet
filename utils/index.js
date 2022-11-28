@@ -2,7 +2,7 @@ const check = require("./asyncHandlerCheck");
 const checkUnique = require("./funcCheckUnique");
 const checkUser = require('./funcCheckUser');
 const checkToken = require('./funcCheckToken');
-const funcCheckPass = require("./funcCheckUser");
+const checkRefresh = require('./funcCheckRefreshToken');
 
 
 
@@ -11,6 +11,6 @@ module.exports = {
     checkUnique,
     checkUser,
     checkToken,
-    funcCheckPass
+    checkRefresh
     
 };
