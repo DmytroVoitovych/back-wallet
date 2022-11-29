@@ -3,7 +3,7 @@ const checkUnique = require("./funcCheckUnique");
 const checkUser = require('./funcCheckUser');
 const checkToken = require('./funcCheckToken');
 const checkRefresh = require('./funcCheckRefreshToken');
-
+const checkList = require('./funcCheckBlackList');
 
 
 module.exports = {
@@ -11,6 +11,7 @@ module.exports = {
     checkUnique,
     checkUser,
     checkToken,
-    checkRefresh
+    checkRefresh,
+    checkList
     
 };

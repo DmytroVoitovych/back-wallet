@@ -6,7 +6,7 @@ const funcCheckUser = async({ body },_,next) => {
     try {
         const { email, password,} = body;  // проверка на наличие и совпадение
         const user = await User.findOne({ email });
-          console.log(email);
+          
         const all = await User.find({},'');    // ищем все
         const n = all.map((e) => e.password); // забираем пароли
         const arr = [];
@@ -22,7 +22,7 @@ const funcCheckUser = async({ body },_,next) => {
         if (arr.some(e => e) && !user) { //если есть то дело в мыле а не в пароле
                       
             const err = new Error(`User email ${email} is wrong`);
-            err.status = 400;
+            err.status = 401;
             throw err;
                
         }
@@ -38,7 +38,7 @@ const funcCheckUser = async({ body },_,next) => {
         
         if (!user || !pass) { //если неверный пароль
             const err = new Error(`${pass?'Email':'Password'} is wrong`);
-            err.status = 400;
+            err.status = 401;
             throw err;
         }
         else if (user.token) {
@@ -47,12 +47,7 @@ const funcCheckUser = async({ body },_,next) => {
            throw err;  
         }
           
-        // else if (!user.verify) {// проверка верецирован ли эмейл
-        //     const err = new Error("Email not verify");
-        //     err.status = 400;
-        //     throw err;    
-        // }
-        else {
+         else {
          next();   
         }
         
