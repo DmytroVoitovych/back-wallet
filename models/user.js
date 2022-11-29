@@ -18,6 +18,10 @@ const userSchema = Schema(  { // схема данных которые може
   token: {
     type: String,
     default: null,
+  },
+   tokenRefresh: {
+    type: String,
+    default: null,
     }
    
 },{versionKey:false, timestamps:true});

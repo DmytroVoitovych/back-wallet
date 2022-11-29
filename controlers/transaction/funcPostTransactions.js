@@ -40,7 +40,7 @@ const funcPostTransactions = async (req, res) => {
             data: await Action.create({
                 sum,
                 balance: type === 'income' ? currAmount  + sum : currAmount - sum
-                , comment, category, type, owner: _id, date, time
+                , comment, category: category?category:"Other", type, owner: _id, date, time
             }) // метод для добавление в колекцию в мангуссе,
              
         });
