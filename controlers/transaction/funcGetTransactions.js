@@ -20,7 +20,6 @@ const funcGetTransaction = async ({ user, query }, res) => {
     data: data.map(({date, category, type, comment, sum, balance, _id}) => ({date, category, type, comment, sum:sum.toFixed(2), balance:balance.toFixed(2), _id})),
     page: length === 0 ? `sorry this page ${page} empty`: page, 
    })
-}; // find без аргументов возращает всю колекцию  
-// const funcGetContacts = async (_, res) =>  res.json({ status: 200, data: await Contact.find({},'name email phone'), }); // вторым аргументом можна передать определенные поля для вывода с колекции
+}; 
 
 module.exports = funcGetTransaction;

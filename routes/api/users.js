@@ -15,10 +15,4 @@ router.get('/current', checkList, checkToken, check(ctrCurrent)); // прове�
 router.get('/logout', checkList, checkToken, check(ctrLogout)); // выход
 
 
-// router.get('/verify/:verificationToken', check(ctrEmail)); //подтверждение почты пользвателя // верификация по почте
-
-// router.post('/verify',  check(ctrRefetchEmail)); // повторная отправка письма для верификации по почте
-
-
-
 module.exports = router;

@@ -2,8 +2,6 @@ const Joi = require("joi");
 
 const pattern ='(0?[1-9]|[12][0-9]|3[01])\\.(0?[1-9]|1[012])\\.((?:19|20)[0-9][0-9])$';
 
-
-
 const validation = (data) => {
     const shema = Joi.object({
     type: Joi.string().valid("income", "expense").required(), // или или
@@ -24,10 +22,3 @@ validation,
 
 
 
-// {
-//   "type": "income",
-//   "category": "Main",
-//   "comment": "Bonus for work",
-//   "sum": 3000,
-//   "balance": 25000
-// }

@@ -1,6 +1,6 @@
 const {Action} = require('../../models/transaction');
 const {validation} = require('../../validation/postActionValidation'); 
-//  const dat = (new Date()).toLocaleDateString('en-GB').replace('/','.').replace('/','.'); //формат дата 19.11.2022
+
 const funcPostTransactions = async (req, res) => {
     const { error } = validation(req.body);
     
@@ -16,8 +16,9 @@ const funcPostTransactions = async (req, res) => {
         const currAmount =curr.length === 0?25000:Number(...curr.slice(-1).map(e => e.balance));
             
         const dat = new Date(); //формат дата 19.11.2022
-        const time = (new Date()).toTimeString().slice(0, 5); //формат время 23:29
-
+        const time = new Intl.DateTimeFormat("en-GB", { timeZone: 'Europe/Kiev', hour: "numeric",  minute: "numeric"}).format(dat); //формат время 23:29
+        
+      
         const { sum, comment, category, type, date } = req.body;
         const valid = date.split('.');
 
@@ -49,3 +50,5 @@ const funcPostTransactions = async (req, res) => {
 };
 
 module.exports = funcPostTransactions;
+
+//  const dat = (new Date()).toLocaleDateString('en-GB').replace('/','.').replace('/','.'); //формат дата 19.11.2022

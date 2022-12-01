@@ -13,8 +13,8 @@ const funcPostRefresh = async (req, res, next) => {
         
     res.status(200).json({
         status: 'success', code: 200, data: { access_token: token, token_type: "Bearer", refresh_token: refresh },
-        timeExp: new Date(Date.now() + (exp - iat) * 1000).toLocaleTimeString(),
-        dateExp: new Date(Date.now() + (exp - iat) * 1000).toLocaleDateString()
+        timeExp: new Date(Date.now() + (exp - iat) * 1000).toLocaleTimeString('en-GB',{timeZone:'Europe/Kiev'}),
+        dateExp: new Date(Date.now() + (exp - iat) * 1000).toLocaleDateString('en-GB',{timeZone:'Europe/Kiev'})
     });
     
 };
