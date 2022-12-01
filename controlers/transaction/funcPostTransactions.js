@@ -21,7 +21,7 @@ const funcPostTransactions = async (req, res) => {
         const { sum, comment, category, type, date } = req.body;
         const valid = date.split('.');
 
-         if (+valid[1] > dat.getMonth() + 1 || +valid[2] > dat.getFullYear() || +valid[0] > dat.getDate() ) { // проверка  на то что бы дата не была больше текущей 
+         if (+valid[1] > dat.getMonth() + 1 || +valid[2] > dat.getFullYear() || +valid[0] > 31 ) { // проверка  на то что бы дата не была больше текущей 
         const err = new Error('Error date, invalid date');
         err.status = 400;
         throw err;
