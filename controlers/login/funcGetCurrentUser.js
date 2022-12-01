@@ -6,7 +6,7 @@ const funcGetCurrentUser = async (req, res) => {
     
     const { exp} = jwt.decode(token);
     const die = new Date(exp * 1000).getTime();
-
+    
     const curr = await Action.find({ owner: _id }, '');
     
     res.json({
@@ -17,7 +17,7 @@ const funcGetCurrentUser = async (req, res) => {
             curr_balance: curr.length === 0?(25000).toFixed(2):Number(...curr.slice(-1).map(e=>e.balance)).toFixed(2), //текущий баланс
             options: ["Main", "Food", "Auto", "Reset", "Development", "Children", "House", "Education"],
             token_die: {
-                timeFormat: new Date(die).toLocaleTimeString(),
+                timeFormat: new Date(die).toLocaleTimeString('en-GB',{timeZone:'Europe/Kiev'}),
                 jsDate: die
             },
             token,
