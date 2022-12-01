@@ -1,5 +1,5 @@
 const { Blist } = require("../models/blist");
-const jwt = require('jsonwebtoken'); 
+
 
 
 const funcCheckBlackList = async (req, _, next) => {
