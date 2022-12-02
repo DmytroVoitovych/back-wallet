@@ -1,9 +1,9 @@
 const app = require('./app');
 const moongose = require('mongoose');
-const { DBHOST,PORT=3000 } = process.env;
+const { DB_HOST,PORT=3000 } = process.env;
 
 
-moongose.connect(DBHOST).then(() => app.listen(PORT, () => {
+moongose.connect(DB_HOST).then(() => app.listen(PORT, () => {
   
   console.log("Server running. Use our API on port: 3006");
   console.log("Database connection successful");
