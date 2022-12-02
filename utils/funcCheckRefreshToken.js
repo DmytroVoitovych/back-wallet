@@ -1,7 +1,7 @@
 const { User } = require("../models/user");
 const jwt = require('jsonwebtoken'); 
 
-const { REFRESH_KEY } = process.env;
+const { REFRESHKEY } = process.env;
 
 const funcCheckRefreshToken = async (req, _, next) => {
     const { authorization = '' } = req.headers; // извлекаем заголовок
@@ -16,7 +16,7 @@ const funcCheckRefreshToken = async (req, _, next) => {
         throw err;
        }
         
-        const { id } = jwt.verify(refresh, REFRESH_KEY);
+        const { id } = jwt.verify(refresh, REFRESHKEY);
         const user = await User.findById(id);
           console.log(id);
         if (!user || !user.tokenRefresh) {
