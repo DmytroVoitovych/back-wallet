@@ -1,7 +1,8 @@
+const cors = require('cors');
 const express = require('express');
 const logger = require('morgan');
-const cors = require('cors');
-// const redis = require('redis');
+
+
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger/openapi.json');
 
